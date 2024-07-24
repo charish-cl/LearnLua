@@ -1,0 +1,29 @@
+--小技巧：如果需要经常访问的类，可以先用局部变量引用后访问，除了减少敲代码的时间，还能提高性能：
+local GameObject = CS.UnityEngine.GameObject
+
+print('hello world')
+
+print('1,2,3,323,231')
+local oldGameobj=GameObject.Find('New Game Object')
+
+--不为空就删除
+if oldGameobj then
+    GameObject.DestroyImmediate(oldGameobj)
+    print('GameObject is deleted')
+end
+
+local newGameObj = GameObject()
+
+print(newGameObj.name)
+
+print(newGameObj.transform.position)
+
+
+--调用静态成员，方法 TestClassA
+local TestClassA = CS.Script.TestClassA;
+--TestClassA.TestMethod()
+
+testA = TestClassA()
+testA:TestFunc()
+print(testA.a)
+print(TestClassA.b)
