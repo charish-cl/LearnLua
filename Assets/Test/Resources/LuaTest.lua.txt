@@ -1,7 +1,16 @@
+
+require('A')
 --小技巧：如果需要经常访问的类，可以先用局部变量引用后访问，除了减少敲代码的时间，还能提高性能：
 local GameObject = CS.UnityEngine.GameObject
 
-print('hello world')
+
+
+if true then
+    --直接返回
+    return
+    
+end
+
 
 print('1,2,3,323,231')
 local oldGameobj=GameObject.Find('New Game Object')
@@ -27,3 +36,41 @@ testA = TestClassA()
 testA:TestFunc()
 print(testA.a)
 print(TestClassA.b)
+
+b = nil
+print(b)
+
+
+function fibnacci(n)
+
+    if n == 0 then
+        return 0
+    elseif n == 1 then
+        return 1
+    else
+        return fibnacci(n - 1) + fibnacci(n - 2)
+    end
+end
+--要放在函数后面
+print(fibnacci(10))
+
+
+--字符串
+local str = 'hello world'
+print(str.."2313")
+--LUA: hello world2313
+
+print("strLength--"..#str)
+
+
+--lua数组从1开始
+arr = {11, 22, 33, 44, 55}
+    print("arr for")
+
+--for i = 1, #arr do
+--    print(arr[i])
+--end
+
+for i, v in ipairs(arr) do
+    print(i, v)
+end

@@ -1,0 +1,23 @@
+mytable = setmetatable({ key1 = "value1" }, { __index = { key2 = "value2" } })
+
+print(mytable.key1, mytable.key2, mytable.key3)
+
+for key, value in pairs(mytable) do
+    print(key, value)
+
+end
+
+local a = {}
+
+a.A = 1
+
+print(a.A)
+
+a["A"] = 2
+
+print(a["A"])
+
+
+a["B"] = 3
+
+print(a["B"])

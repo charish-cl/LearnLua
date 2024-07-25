@@ -12,7 +12,7 @@ namespace Script
 
         private void OnEnable()
         {
-            luaenv??= new LuaEnv();
+            // luaenv??= new LuaEnv();
         }
 
         [Button("Lua DoString")]
@@ -24,9 +24,10 @@ namespace Script
         [Button("Lua Require")]
         void Require()
         {
-            luaenv.DoString("require 'LuaTest'");
-            luaenv.Dispose();
             luaenv = new LuaEnv();
+            luaenv.DoString("require 'LuaTest'");
+            // luaenv.DoString("require 'A'");
+            luaenv.Dispose();
         }
         
       
