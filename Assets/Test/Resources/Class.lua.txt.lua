@@ -4,7 +4,7 @@
 --- DateTime: 2024/7/25 8:30
 ---
 --lua模拟类
-    
+
 local function class(className,super)
 
     local class = {__cname = className}
@@ -19,6 +19,6 @@ local function class(className,super)
 
         setmetatable(class, {__index = super})
     end
-    
+
         return class
 end

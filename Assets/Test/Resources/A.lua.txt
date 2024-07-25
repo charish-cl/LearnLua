@@ -1,23 +1,46 @@
-mytable = setmetatable({ key1 = "value1" }, { __index = { key2 = "value2" } })
+--mytable = setmetatable({ key1 = "value1" }, { __index = { key2 = "value2" } })
+--
+--print(mytable.key1, mytable.key2, mytable.key3)
+--
+--for key, value in pairs(mytable) do
+--    print(key, value)
+--
+--end
+--
+--local a = {}
+--
+--a.A = 1
+--
+--print(a.A)
+--
+--a["A"] = 2
+--
+--print(a["A"])
+--
+--
+--a["B"] = 3
+--
+--print(a["B"])
 
-print(mytable.key1, mytable.key2, mytable.key3)
 
-for key, value in pairs(mytable) do
-    print(key, value)
-
+local table = setmetatable({}, {})
+local mt = getmetatable(table)
+function mt:__newindex(key, value)
+    mt[key] = nil
+    print("cannot create new propery:" .. key .. value)
 end
-
-local a = {}
-
-a.A = 1
-
-print(a.A)
-
-a["A"] = 2
-
-print(a["A"])
+table.key = " i am a key"
+table.value = 123
 
 
-a["B"] = 3
+--禁止全局变量
+setmetatable(_G,{
+    __newindex = function(_,key) 
+        print("尝试加新的全局变量"..key)
+    end,
+    __index = function(_,key)
+        print("尝试访问全部变量"..key)
+    end
+})
 
-print(a["B"])
+deqweq =1
